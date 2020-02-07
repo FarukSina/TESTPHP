@@ -7,7 +7,15 @@
     }
 
     var_dump($_POST);
-    $conn = mysqli_connect('localhost','root',null,'lesson_03');
+
+    include("../.env.php");
+
+
+    $conn = mysqli_connect(getenv('DB_HOST'), getenv('DB_USER'), getenv('DB_PASS'), getenv('DB'));
+
+
+
+   // $conn = mysqli_connect('localhost','root',null,'lesson_03');
 
     $sql = "UPDATE countries SET
             name = '{$_POST['name']}',

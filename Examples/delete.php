@@ -6,7 +6,11 @@ if(empty($_GET['id'])){
     exit;
 }
 
-    $conn = mysqli_connect('localhost','root',null,'lesson_03');
+    include("../.env.php");
+
+
+    $conn = mysqli_connect(getenv('DB_HOST'), getenv('DB_USER'), getenv('DB_PASS'), getenv('DB'));
+
 
     var_dump($_GET);
 

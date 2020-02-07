@@ -6,7 +6,13 @@ if(empty($_GET['id'])){
 }
 
 // Our databese connection
-$conn = mysqli_connect('localhost','root',null,'lesson_03');
+
+    include("../.env.php");
+
+
+    $conn = mysqli_connect(getenv('DB_HOST'), getenv('DB_USER'), getenv('DB_PASS'), getenv('DB'));
+
+//$conn = mysqli_connect('localhost','root',null,'lesson_03');
 
 // Fetch the row Spot
 $result = mysqli_query($conn, "SELECT * FROM countries WHERE id = {$_GET['id']}");
